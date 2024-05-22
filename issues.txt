@@ -1,0 +1,39 @@
+ISSUES
+
+- code contains Windows specific code, thus it's not cross platform: should the program be crossplatform? if not, should I just use Windows api rather than libusb?
+
+- when debugging I need to plug and unplug usb devices: couldn't I set up some kind of testing environment? (for example, reading fake plugged usb devices from a text file)
+
+- when the program starts there are some "internal" usb devices which are detected: shouldn't I exclude them from being considered and logged?
+
+- [FEATURE] monitor unplug devices
+
+- [FEATURE] setting option for sleep time? is it even a good implementation to use sleep?
+
+- [FEATURE] target.txt is open every time the usb state changes. should it be an option? maybe load only once would be another option?
+
+- [FEATURE] `if (ndevs.size > pdevs.size)` the program won't detect if a usb is unplugged and another is plugged during the same timeframe
+
+- [FEATURE] option to open program as admin
+
+- [FEATURE] option to open program in a specific working directory
+
+- [FEATURE] option to open program with arguments
+
+- [BUG] the program can be run multiple times. imagine if the program itself is a target of a startup usb device! maybe implement the program as a "service" in such a way as to be able to call the executable multiple times also to edit settings while running, through interprocess communication.
+
+- [CHECK] what happens if there are multiple user accounts in that machine?
+
+- [CHECK] what happens if the path to program in target.txt points to: a non executable file, a directory, an invalid path?
+
+- if I restart usbmonitor while the usb is plugged and the target is already open, it's going to open again.
+
+- support for unicode?
+
+- [FEATURE] call program with command line parameters to send signals to the already running program, maybe to change settings or quit.
+
+- what if I want to run a program within the usb device itself?
+
+- terminal window visibility: maybe set up a configurable flag or a setting from file? should I use WinMain in order to remove the terminal? and an option to log on terminal instead/also on file?
+
+- max number of devices: shouldn't it be dynamic? maybe give an option to choose if dynamic or fixed?
